@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
@@ -43,13 +44,31 @@ public class TestMultipuleThread {
 
         //WebElement iphoneBattery = driver.findElement(By.tagName("button"));
         Thread.sleep(4000);
-        List<WebElement> links= driver.findElements(By.tagName("button"));
-        for(int i = 0; i < links.size(); i++) {
-            System.out.println(links.get(i));
 
-        }
-        links.get(5).click();
-        System.out.println("ib button clicked");
+        List<WebElement> links= driver.findElements(By.className("dropbtn"));
+        System.out.println("chat click");
+        System.out.println(links);
+        System.out.println(links.get(0));
+        System.out.println("another");
+        WebElement drpbtn = driver.findElement(By.className("dropbtn"));
+        System.out.println(drpbtn.getText());
+        System.out.println("yeee");
+        //WebElement dropdown = driver.findElement(By.className("dropdown-content"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(drpbtn).perform();
+        System.out.println("yeeeeeee");
+        Thread.sleep(2000);
+        List<WebElement> buttonsList = driver.findElements(By.className("dropbutton-content"));
+        System.out.println("find buttons");
+        Thread.sleep(1000);
+        System.out.println(buttonsList);
+        List<WebElement> buttons = driver.findElements(By.tagName("button"));
+        System.out.println(buttons);
+        Thread.sleep(2000);
+
+        WebElement buttoni = buttons.get(2);
+        actions.moveToElement(buttoni).click().perform();
+        System.out.println("gg");
 
         Thread.sleep(1000);
         WebElement statusChat = driver.findElement(By.id("status"));

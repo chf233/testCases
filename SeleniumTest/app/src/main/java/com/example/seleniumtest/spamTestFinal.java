@@ -71,7 +71,7 @@ public class spamTestFinal {
         while (statusChat.getText().equals("Finding/Waiting for an Agent")){
             System.out.println("waiting");
         }
-        for(int i = 0; i<10; i++){
+        for(int i = 0; i<5; i++){
         WebElement testForm = driver.findElement(By.id("submission"));
         Thread.sleep(1000);
         testForm.sendKeys("hi");

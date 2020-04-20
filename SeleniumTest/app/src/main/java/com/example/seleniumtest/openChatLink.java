@@ -42,13 +42,31 @@ public class openChatLink {
 
         //WebElement iphoneBattery = driver.findElement(By.tagName("button"));
         Thread.sleep(4000);
-        List<WebElement> links= driver.findElements(By.tagName("button"));
-        for(int i = 0; i < links.size(); i++) {
-            System.out.println(links.get(i));
 
-        }
-        links.get(5).click();
-        System.out.println("ib button clicked");
+        List<WebElement> links= driver.findElements(By.className("dropbtn"));
+        System.out.println("chat click");
+        System.out.println(links);
+        System.out.println(links.get(0));
+        System.out.println("another");
+        WebElement drpbtn = driver.findElement(By.className("dropbtn"));
+        System.out.println(drpbtn.getText());
+        System.out.println("yeee");
+        //WebElement dropdown = driver.findElement(By.className("dropdown-content"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(drpbtn).perform();
+        System.out.println("yeeeeeee");
+        Thread.sleep(2000);
+        List<WebElement> buttonsList = driver.findElements(By.className("dropbutton-content"));
+        System.out.println("find buttons");
+        Thread.sleep(1000);
+        System.out.println(buttonsList);
+        List<WebElement> buttons = driver.findElements(By.tagName("button"));
+        System.out.println(buttons);
+        Thread.sleep(2000);
+
+        WebElement buttoni = buttons.get(2);
+        actions.moveToElement(buttoni).click().perform();
+        System.out.println("gg");
 
         Thread.sleep(1000);
         WebElement statusChat = driver.findElement(By.id("status"));
@@ -82,24 +100,26 @@ public class openChatLink {
 
         Select userSelect=new Select(driver.findElement(By.id("product")));
         Thread.sleep(3000);
-        userSelect.selectByVisibleText("Consotosh");
+        userSelect.selectByVisibleText("iphone");
         System.out.println("product selected");
 
         Select userSelect2=new Select(driver.findElement(By.id("problem")));
         Thread.sleep(3000);
-        userSelect2.selectByVisibleText("Screen");
+        userSelect2.selectByVisibleText("Iphone: Battery/Power");
         System.out.println("problem selected");
 
         WebElement status = driver.findElement(By.id("status"));
         System.out.println(status.getText());
+        WebElement callButton = driver.findElement(By.id("callButton"));
+        Thread.sleep(4000);
+        callButton.click();
+        System.out.println("start call");
         while(status.getText().equals("Finding/Waiting for an Agent")){
             System.out.println("waiting");
         }
-        WebElement callButton = driver.findElement(By.id("callButton"));
-        Thread.sleep(3000);
-        callButton.click();
-        System.out.println("start call");
-
+        Thread.sleep(5000);
+        WebElement endCall = driver.findElement(By.id("endCall"));
+        endCall.click();
         /*JavascriptExecutor js1 = (JavascriptExecutor) driver;
         js1.executeScript("arguments[0].click();",contact);
         System.out.println("iphonebattery selected");*/
