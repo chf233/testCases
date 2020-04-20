@@ -85,5 +85,9 @@ public class TestMultipuleThread {
         System.out.println("message sent");
         Thread.sleep(3000);
 
+        WebElement endChat = driver.findElement(By.id("endChat"));
+        Thread.sleep(1000);
+        endChat.click();
+
     }
 }

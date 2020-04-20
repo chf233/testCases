@@ -82,9 +82,11 @@ public class openChatLink {
         nextButton.click();
         System.out.println("message sent");
         Thread.sleep(3000);
-
+        WebElement endChat = driver.findElement(By.id("endChat"));
+        endChat.click();
+/*
         driver.navigate().back();
-        System.out.println("return");
+        System.out.println("return");*/
 
         WebElement contact2 = driver.findElement(By.xpath("//a[@href='contactUs.html']"));
         Thread.sleep(4000);
