@@ -6,6 +6,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
@@ -76,6 +77,28 @@ public class MonkeyTestContact {
             }
         }
 
+            WebElement drpbtn = driver.findElement(By.className("dropbtn"));
+            System.out.println(drpbtn.getText());
+            System.out.println("yeee");
+            //WebElement dropdown = driver.findElement(By.className("dropdown-content"));
+            Actions actions = new Actions(driver);
+            actions.moveToElement(drpbtn).perform();
+            System.out.println("yeeeeeee");
+            Thread.sleep(1000);
+            List<WebElement> buttonsList = driver.findElements(By.className("dropbutton-content"));
+            System.out.println("find buttons");
+            Thread.sleep(3000);
+            List<WebElement> buttons = driver.findElements(By.tagName("button"));
+            Thread.sleep(3000);
+            System.out.println("ohhhh");
+            WebElement buttonI = buttons.get(0);
+            actions.moveToElement(buttonI).click().perform();
+            Thread.sleep(3000);
+            System.out.println("gg");
+            driver.navigate().back();
+
+
+        /*
         List<WebElement> buttons= driver.findElements(By.tagName("button"));
         for(int i = 0; i < buttons.size(); i++) {
             System.out.println(buttons.get(i));
@@ -89,6 +112,8 @@ public class MonkeyTestContact {
         JavascriptExecutor js2 = (JavascriptExecutor) driver;
         js2.executeScript("arguments[0].click();",contact2);
         System.out.println("Contact click successfully");
+
+
         List<WebElement> buttons2= driver.findElements(By.tagName("button"));
         for(int i = 0; i < buttons2.size(); i++) {
             System.out.println(buttons2.get(i));
@@ -96,7 +121,7 @@ public class MonkeyTestContact {
         buttons2.get(5).click();
         Thread.sleep(2000);
         driver.navigate().back();
-
+*/
         /*
         for(int i = 0; i < buttons.size(); i++)
         {
